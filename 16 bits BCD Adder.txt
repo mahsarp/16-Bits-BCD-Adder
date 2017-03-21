@@ -1,0 +1,40 @@
+module top_module( 
+    input [15:0] a, b,
+    input cin,
+    output cout,
+    output [15:0] sum );
+    
+    reg t1;
+    reg t2;
+    reg t3;
+    reg t4;
+    
+    bcd_fadd instance1(
+    a[3:0],
+    b[3:0],
+    cin,
+    t1,
+    sum [3:0]);
+       
+    bcd_fadd instance2(
+        a[7:4],
+        b[7:4],
+    t1,
+    t2,
+        sum [7:4]);
+        
+    bcd_fadd instance3 (
+      a[11:8],
+      b[11:8],
+     t2,
+    t3,
+      sum [11:8]);     
+      
+    bcd_fadd instance4 (
+       a[15:12],
+       b[15:12],
+    t3,
+    cout,
+       sum [15:12]);
+endmodule
+
